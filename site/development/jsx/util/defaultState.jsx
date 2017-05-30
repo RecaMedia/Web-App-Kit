@@ -6,12 +6,10 @@
 @since      04/18/17
 */
 
-// Global Functions
-const GlobalFunctions = {
+import global from '../data/global';
 
-	showAlert: function(message) {
-		alert(message);
-	}
+const defaultState = {
+	global
 };
 
-module.exports = GlobalFunctions;
+export default defaultState

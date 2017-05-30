@@ -6,12 +6,8 @@
 @since      04/18/17
 */
 
-// Global Functions
-const GlobalFunctions = {
-
-	showAlert: function(message) {
-		alert(message);
-	}
+const global = {
+	config: null
 };
 
-module.exports = GlobalFunctions;
+export default global;

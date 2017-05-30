@@ -1,6 +1,6 @@
 //**** EDIT THIS URL ****//
 // Use this URL to point to the directory where your PHP/HTML files are being served locally.
-var URL = "localhost/pto-manager/site";
+var URL = "localhost/web-app-kit/site";
 //**** EDIT THIS URL ****//
 
 

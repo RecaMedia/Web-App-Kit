@@ -6,12 +6,9 @@
 @since      04/18/17
 */
 
-// Global Functions
-const GlobalFunctions = {
-
-	showAlert: function(message) {
-		alert(message);
-	}
-};
-
-module.exports = GlobalFunctions;
+export function test(file) {
+  return {
+    type: "ALERT",
+    text: "Testing action"
+  }
+}

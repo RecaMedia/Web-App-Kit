@@ -6,20 +6,19 @@
 @since      04/18/17
 */
 
-const globalDefaults = {};
+const global = function(state = {}, action) {
+	state = Object.assign({}, state, {
+		lastAction: action.type
+	})
 
-const globalReducer = function(state = globalDefaults, action) {
 	switch (action.type) {
+
 		case "ALERT" : {
-
-			state = Object.assign({}, state, {
-				alert: action.payload
-			})
-
+			console.log(action.text);
 			break;
 		}
 	}
 	return state;
 }
 
-export default globalReducer;
+export default global;

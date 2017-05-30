@@ -6,14 +6,23 @@
 @since      04/18/17
 */
 
-import {combineReducers, createStore} from 'redux';
+import {applyMiddleware, createStore} from 'redux';
+import {syncHistoryWithStore} from 'react-router-redux';
+import {browserHistory} from 'react-router';
+import {createLogger} from 'redux-logger';
+import asyncDispatch from './util/asyncDispatch';
 
-import GlobalReducer from './reducers/global';
+import defaultState from './util/defaultState';
+import reducers from './util/reducers';
 
-const reducer = combineReducers({
-	global: GlobalReducer
+const logger = createLogger({
+  level: 'log'
 });
 
-const store = createStore(reducer);
+const middleware = applyMiddleware(asyncDispatch, logger);
+
+const store = createStore(reducers, defaultState, middleware);
+
+export const history = syncHistoryWithStore(browserHistory, store);
 
 export default store;

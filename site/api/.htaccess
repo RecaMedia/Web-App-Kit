@@ -16,7 +16,7 @@
 
 	# When using the script within a sub-folder, put this path here, like /mysubfolder/
 	# If your app is in the root of your web folder, then leave it commented out
-	RewriteBase /pto-manager/site/api/
+	RewriteBase /web-app-kit/site/api/
 
 	# Don't fix direct file links & check for post
 	RewriteCond %{REQUEST_METHOD}  !=POST

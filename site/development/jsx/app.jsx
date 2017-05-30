@@ -8,28 +8,25 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import {Provider} from 'react-redux';
-import store from './store';
+import store, {history} from './store';
 
-import Example from './components/example';
-import Example2 from './components/example2';
+import App from './util/connectDispatch';
 
-class App extends React.Component {
+import Home from './templates/home';
+import About from './templates/about';
 
-	render() {
-
-		return (
-			<div>
-				<Example message="React is working!"/>
-				<br/>
-				<Example2 message="Second React is working!"/>
-			</div>
-		)
-	}
-}
-
-ReactDOM.render(
+const Routing = (
 	<Provider store={store}>
-		<App/>
-	</Provider>, document.querySelector("#App")
-);
+		<Router history={history}>
+			<Route path="/" component={App}>
+				<IndexRoute component={Home}></IndexRoute>
+				<Route path="/about" component={About}></Route>
+			</Route>
+		</Router>
+	</Provider>
+)
+
+// Renders
+ReactDOM.render(Routing, document.getElementById("App"));
